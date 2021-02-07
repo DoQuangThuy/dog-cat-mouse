@@ -1,16 +1,15 @@
-var chalk = require('chalk');
+var Mouse = require('./Mouse');
 
-function Cat(name){
-	this.name = name;
+function Cat(){
 	this.stomach = [];
 }
 
-Cat.prototype.eat = function (mouse){
-	this.stomach.push(mouse);
-};
-
-Cat.prototype.sayHi = function(){
-	console.log('Hi, I am a cat. My name is ' + chalk.red(this.name));
+Cat.prototype.eat = function(animal){
+	if (animal instanceof Mouse){
+		this.stomach.push(animal);
+	}else {
+		throw new Error('Cat can only eat mouse');
+	}
 };
 
 module.exports = Cat;
