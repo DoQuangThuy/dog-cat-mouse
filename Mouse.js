@@ -1,6 +1,10 @@
 function Mouse(){
 	this.name = name;
+	this.dead = false;
 }
 
-var mouse1 = new Mouse('Dthuan');
-var mouse2 = new Mouse('Tbean');
+Mouse.prototype.die = function(){
+	this.dead = true;
+};
+
+module.exports = Mouse;
